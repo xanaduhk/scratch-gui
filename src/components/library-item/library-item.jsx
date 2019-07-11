@@ -127,11 +127,7 @@ class LibraryItemComponent extends React.PureComponent {
             >
                 {/* Layers of wrapping is to prevent layout thrashing on animation */}
                 <Box className={styles.libraryItemImageContainerWrapper}>
-                    <Box
-                        className={styles.libraryItemImageContainer}
-                        onMouseEnter={this.props.showPlayButton ? this.props.onMouseEnter : null}
-                        onMouseLeave={this.props.showPlayButton ? this.props.onMouseLeave : null}
-                    >
+                    <Box className={styles.libraryItemImageContainer}>
                         <img
                             className={styles.libraryItemImage}
                             src={this.props.iconURL}
@@ -145,7 +141,8 @@ class LibraryItemComponent extends React.PureComponent {
                         className={styles.playButton}
                         onClick={preventClick}
                         onMouseDown={this.props.isPlaying ? this.props.onStop : this.props.onPlay}
-                        onMouseLeave={this.props.isPlaying ? this.props.onStop : null}
+                        onMouseEnter={this.props.onMouseEnter}
+                        onMouseLeave={this.props.onMouseLeave}
                     >
                         <img
                             className={styles.playIcon}
